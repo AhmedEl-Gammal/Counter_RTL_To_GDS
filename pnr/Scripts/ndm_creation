@@ -1,0 +1,25 @@
+# --------------- NDM Script_Created by icc2_lm_shell  --------------- # 
+# ---------------- Create_Workspace ---------------- #
+# -- Determined location of (technology file ) 
+create_workspace -flow exploration -technology /home/ICer/Downloads/Lib/process/astro/tech/astroTechFile.tf NDM_counter
+
+# ---------------- Change_Options ---------------- #
+# --- To save design and layout views in The NDM  
+set_app_options -list {lib.workspace.keep_all_physical_cells {true}}
+set_app_options -list {lib.workspace.save_design_views {true}}
+set_app_options -list {lib.workspace.save_layout_views {true}}
+set_app_options -list {design.enable_lib_cell_editing {mutable}}
+
+# ---------------- read file.db ---------------- # 
+read_db { /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db}
+
+# ---------------- read file.lef ---------------- # 
+read_lef /home/ICer/Downloads/Lib/lef/saed90nmEditted.lef
+
+# ---------------- create group ---------------- #
+# group multiple libraries into a single logical entity
+group_libs
+
+# ---------------- create the ndm ---------------- #
+process_workspaces  -directory /home/ICer/Desktop/Intake45_Elgammal/Counter/pnr/ndm
+
