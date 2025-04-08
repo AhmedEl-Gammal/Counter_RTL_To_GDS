@@ -10,7 +10,8 @@ begin
 	else count <= count +1;
 end 
 
-assign flag = (count == 3'b101) ? 1'b1 : 1'b0 ; 
+assign flag = (count == 3'b101) ? 1'b1 : 1'b0 ;
+ 
 endmodule 
 
 
